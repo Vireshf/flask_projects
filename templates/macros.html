@@ -1,0 +1,26 @@
+{% macro render_dict(dictionary)%}
+		<table>
+			<tr>
+				<th>name</th>
+				<th>duration</th>
+				<th>comments</th>
+			</tr>
+
+			{% for movie, duration in dictionary.items() %}
+			<tr>
+				<td>{{movie}}</td>
+				<td>{{duration}}</td>
+
+				{% if duration <= 150 %}
+				<td style="color:green">Short</td>
+				{% elif duration >150 and duration <=200 %}
+				<td style="color:yellow">medium</td>
+				{% else %}
+				<td style="color:red">long</td>
+				{% endif %}
+			</tr>
+			{%endfor%}
+		</table>
+{% endmacro %}
+
+
